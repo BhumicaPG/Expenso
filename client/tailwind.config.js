@@ -3,12 +3,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "rp-black": "#1E2329", //changes box colours
-        "mj-black": "#2A2F35",
-        "jp-black": "#3B4046",
-        "rp-yellow": "#F5A302",
-        "mj-yellow": "#F4B301",
-        "jp-yellow": "#FED154",
+        "rp-black": "white", //changes box colours #1E2329  #eae8e4
+        "mj-black": "#E0E1E4", //dashboard lhilay tyacha color change
+        "jp-black": "#F5EFFF", //purn home page cha background
+        "rp-yellow": "#B19CD9", //yellow - #F5A302   purple - #B19CD9
+        "mj-yellow": "#8968cd", //   #F4B301
+        "jp-yellow": "#645394", //#FED154   //spend analysis javal cha icon
         "blue-1": "023e8a",
         "blue-2": "0077b6",
         "blue-3": "0096c7",
@@ -16,6 +16,7 @@ module.exports = {
         "blue-5": "48cae4",
         "blue-6": "90e0ef",
         "blue-7": "ade8f4",
+        "custom-black": "#1E2329",
       },
     },
     fontFamily: {

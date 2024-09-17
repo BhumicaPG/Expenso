@@ -15,7 +15,7 @@ const DatePicker2 = (props) => {
           tempExpense.date = date.toDateString();
           props.setExpense(tempExpense);
         }}
-        className="p-3  w-3/4 rounded-md outline-none bg-jp-black px-4 placeholder-rp-yellow mt-4 text-jp-white"
+        className="p-3  w-3/4 rounded-md outline-none bg-jp-black px-4 placeholder-rp-yellow mt-4 text-custom-black"
         placeholderText="Date"
         showYearDropdown
       />

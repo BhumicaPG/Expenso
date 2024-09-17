@@ -29,7 +29,9 @@ export default function Profile({ setViewProfile }) {
         setViewProfile("hidden");
       }}
     >
-      <h1 className="text-white mr-4 text-lg font-semibold">Hi, {user.name}</h1>
+      <h1 className="text-jp-yellow mr-4 text-lg font-semibold">
+        Hi, {user.name}
+      </h1>
       <img src={avatar} alt="user" className="h-10 bg-mj-black rounded-full" />
     </div>
   );

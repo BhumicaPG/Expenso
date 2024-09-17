@@ -74,13 +74,16 @@ const AddExpense = (props) => {
 
   return (
     <Scrollbars style={{ width: 540, height: 500 }} className="mt-8">
-      <div className=" grid grid-cols-6 font-lexend ">
+      <div className=" grid grid-cols-2 font-lexend ">
         <div className="col-span-4 bg-rp-black p-6 ">
           <div className=" flex mt-4 ">
-            <h1 className="text-jp-white text-2xl font-bold ">Add Expense</h1>
+            {/* <h1 className="text-jp-white text-2xl font-bold ">Add Expense</h1> */}
+            <h1 className="text-custom-black text-2xl font-bold">
+              Add Expense
+            </h1>
           </div>
-          <div className=" text-jp-white flex mt-4 ">
-            <h1 className="text-4xl border-b-2 mt-2">₹</h1>
+          <div className=" text-custom-black flex mt-4 ">
+            <h1 className="text-custom-black text-4xl border-b-2 mt-2">₹</h1>
             <input
               className="p-3 bg-rp-black text-3xl w-3/4 border-b-2 outline-none "
               placeholder="0"
@@ -98,7 +101,7 @@ const AddExpense = (props) => {
           </span>
           <div>
             <input
-              className="p-3 px-4 rounded-md mt-6  w-3/4 placeholder-rp-yellow bg-jp-black outline-none text-jp-white"
+              className="p-3 px-4 rounded-md mt-6  w-3/4 placeholder-rp-yellow bg-jp-black outline-none text-custom-black"
               placeholder="What was this expense for?"
               value={expense.desc}
               onChange={(e) => {
@@ -112,11 +115,13 @@ const AddExpense = (props) => {
             <DatePicker2 expense={expense} setExpense={setExpense} />
           </div>
           <div>
-            <h1 className="text-jp-slate font-bold  mt-4">Category</h1>
+            <h1 className="text-custom-black text-jp-slate font-bold  mt-4">
+              Category
+            </h1>
           </div>
           <div className="text-mj-black">
             <select
-              className="bg-jp-black text-white px-3 py-2 my-1 rounded"
+              className="bg-jp-black text-custom-black px-3 py-2 my-1 rounded"
               name="Categories"
               id="categories"
               value={expense.category}
@@ -139,13 +144,13 @@ const AddExpense = (props) => {
           {splitBill && (
             <div className="mt-4">
               <input
-                className="p-3 px-4 rounded-md w-3/4 placeholder-rp-yellow bg-jp-black outline-none text-jp-white"
+                className="p-3 px-4 rounded-md w-3/4 placeholder-rp-yellow bg-jp-black outline-none text-custom-black"
                 type="number"
                 placeholder="Number of people"
                 value={numberOfPeople}
                 onChange={(e) => setNumberOfPeople(e.target.value)}
               ></input>
-              <div className="mt-2 text-jp-white">
+              <div className="mt-2 text-custom-black">
                 Each person should pay: ₹{splitAmount}
               </div>
               <button
@@ -160,14 +165,14 @@ const AddExpense = (props) => {
             {isLoading ? (
               <ReactLoading
                 type="bubbles"
-                color="#F5A302"
+                color="#645394"
                 height={50}
                 width={50}
               />
             ) : (
               <button
                 onClick={handleAddExpense}
-                className="font-bold text-jp-yellow py-4"
+                className="font-bold text-white bg-jp-yellow py-4 px-6 rounded-md"
               >
                 Save Expense
               </button>

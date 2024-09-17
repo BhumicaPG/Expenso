@@ -44,7 +44,7 @@ export default function Login(props) {
 
   return (
     <div>
-      <div className="p-6 bg-rp-black text-white rounded-xl font-lexend">
+      <div className="p-6 bg-rp-black text-black rounded-xl font-lexend">
         <h1 className="font-bold text-2xl ">Log In</h1>
         <p className="">Please Log in to account to manage expenses</p>
         <hr className="my-4 "></hr>

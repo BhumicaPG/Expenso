@@ -141,7 +141,7 @@ export default function Home(props) {
 
   return (
     <div className="lg:mt-10 mt-0 py-6 lg:py-0">
-      <div className="lg:m-auto lg:ml-auto ml-4  lg:w-3/4 p-5 mx-8 rounded-md  lg:mt-8 bg-rp-black text-slate-300">
+      <div className="lg:m-auto lg:ml-auto ml-4  lg:w-3/4 p-5 mx-8 rounded-md  lg:mt-8 bg-rp-black text-custom-black-300">
         <div className="flex justify-between text-md">
           <p>
             spend in {moment().format("MMM 1")}-{moment().format("MMM D")}
@@ -181,9 +181,9 @@ export default function Home(props) {
         <DoughnutChart chartData={expenseData} />
       </div>
       <Link to="dailyspendanalysis">
-        <div className="w-3/4 m-auto p-4 mt-7 rounded-md bg-rp-black hover:bg-mj-black text-slate-300 lg:block hidden">
+        <div className="w-3/4 m-auto p-4 mt-7 rounded-md bg-rp-black hover:bg-mj-black text-custom-black-300 lg:block hidden">
           <h1 className="flex text-2xl w-fit m-auto">
-            <span className="mr-3 text-jp-yellow">
+            <span className="mr-3 text-mj-yellow">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-8 w-8"

@@ -49,7 +49,7 @@ export default function Signup(props) {
   };
   return (
     <div>
-      <div className="p-6 bg-rp-black text-white rounded-xl font-lexend">
+      <div className="p-6 bg-rp-black text-black rounded-xl font-lexend">
         <h1 className="font-bold text-2xl ">Sign Up</h1>
         <p className="">Please fill this to create an account</p>
         <hr className="my-4 "></hr>
@@ -168,7 +168,9 @@ export default function Signup(props) {
           )}
         </div>
         <span className="flex justify-center py-2">
-          <span className="pr-1">Already have an Account, </span>
+          <span className=" text-rp-yellow pr-1">
+            Already have an Account,{" "}
+          </span>
           <span
             className="text-rp-yellow cursor-pointer"
             onClick={() => {

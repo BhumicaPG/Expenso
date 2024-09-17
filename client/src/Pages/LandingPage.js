@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import Vector from "../assets/Vector.svg";
+import myimage from "../assets/landingpageman.png";
 import Menu from "../assets/mobile_bar.png";
 import Close from "../assets/close.png";
 
@@ -95,8 +95,8 @@ export default function LandingPage(props) {
         className="nav-desktop hidden lg:flex lg:py-5 items-center lg:text-xl text-sm lg:justify-between justify-start"
         id="navbar"
       >
-        <h1 className="text-rp-yellow lg:text-4xl font-semibold text-xl">
-          Expense Tracker
+        <h1 className="text-jp-yellow lg:text-4xl font-semibold text-xl">
+          Expenso
         </h1>
         <div className="grid grid-cols-3 lg:flex items-center lg:justify-between text-mj-yellow ">
           <Link to="/about-us">
@@ -130,7 +130,7 @@ export default function LandingPage(props) {
       </div>
       <div className="lg:grid lg:grid-cols-2 text-slate-300 lg:h-5/6 mt-32 lg:mt-0">
         <div className="my-auto">
-          <div className="lg:text-6xl lg:py-3 text-2xl p-1">
+          <div className="lg:text-6xl lg:py-3 text-black text-2xl p-1">
             The{" "}
             <span className="text-mj-yellow underline">Expense Tracker</span>{" "}
             that works for you
@@ -181,7 +181,7 @@ export default function LandingPage(props) {
           )}
         </div>
         <div className="my-auto mt-20 w-full">
-          <img src={Vector} alt="join now" />
+          <img src={myimage} alt="join now" />
         </div>
       </div>
     </div>

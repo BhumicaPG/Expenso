@@ -33,10 +33,10 @@ export default function Contact() {
             <h1 className="mr-5 text-xl font-lexand text-mj-yellow mt-1">
               Description :
             </h1>
-            <textarea className="text-mj-yellow p-2 bg-jp-black w-[36rem] rounded-md h-40"></textarea>
+            <textarea className="text-mj-yellow p-2 bg-jp-black w-[32rem] rounded-md h-34"></textarea>
           </div>
           <div className="mt-2">
-            <button className="px-10 py-3 bg-mj-yellow text-gray-800 border border-mj-yellow rounded-md hover:bg-gray-800 hover:text-mj-yellow">
+            <button className="px-8 py-3 bg-mj-yellow text-gray-800 border border-mj-yellow rounded-md hover:bg-gray-800 hover:text-mj-yellow">
               <span className="font-bold text-lg ">SEND</span>
             </button>
           </div>

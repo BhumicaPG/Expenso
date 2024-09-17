@@ -80,10 +80,10 @@ export default function Daily() {
   return (
     <div className="pt-2 lg:pt-0 pb-10 lg:pb-0 ">
       <div className="bg-rp-black lg:w-3/4 w-[86%] p-5 flex lg:m-auto ml-5 lg:mt-28  rounded-md justify-center">
-        <h1 className="font-bold text-xl font-lexand text-slate-300 mr-3 mt-3">
+        <h1 className="font-bold text-xl font-lexand text-custom-black-300 mr-3 mt-3">
           Today's Spending
         </h1>
-        <span className="font-bold text-2xl font-lexend text-mj-black bg-rp-yellow p-3 rounded-md">
+        <span className="font-bold text-2xl font-lexend text-black bg-rp-yellow p-3 rounded-md">
           {total}
         </span>
       </div>
