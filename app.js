@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const Router = require("./routers");
+const path = require("path");
 
 // Load environment variables from .env file in the root directory
 dotenv.config();
