@@ -17,6 +17,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(Router);
 
+// Serve static React files (always, not just in "production" for Render)
+app.use(express.static(path.join(__dirname, "client", "build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
 // Database connection
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -36,10 +42,3 @@ app.use((err, req, res, next) => {
 });
 
 // Serve static files and handle client-side routing in production
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  const path = require("path");
-  app.get("*", function (req, res) {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
