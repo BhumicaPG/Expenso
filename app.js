@@ -5,38 +5,36 @@ const mongoose = require("mongoose");
 const Router = require("./routers");
 const path = require("path");
 
+// Keep this at the top
 dotenv.config();
-
 const app = express();
 const port = process.env.PORT || 5000;
 const dbURI = process.env.DATABASE;
 
-// Middleware
+// Middlewares
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
 app.use(Router);
 
-// Connect to DB and then serve frontend + start server
+// Serve static React files always
+app.use(express.static(path.join(__dirname, "client", "build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+// Start server FIRST
+app.listen(port, () => {
+  console.log(`🚀 Server listening on port ${port}`);
+});
+
+// Connect to DB separately (doesn’t block server startup)
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    // Serve static frontend only after successful DB connection
-    app.use(express.static(path.join(__dirname, "client", "build")));
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-    });
-
-    app.listen(port, () => {
-      console.log(`Connected to MongoDB and listening at port ${port}`);
-    });
-  })
-  .catch((err) => {
-    console.error("Error connecting to MongoDB:", err);
-  });
-
-// Error handler
+// Error middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something broke!");
