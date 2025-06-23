@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const Router = require("./routers");
 const path = require("path");
 
-// Load environment variables from .env file in the root directory
 dotenv.config();
 
 const app = express();
@@ -18,16 +17,17 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(Router);
 
-// Serve static React files (always, not just in "production" for Render)
-app.use(express.static(path.join(__dirname, "client", "build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
-
-// Database connection
+// Connect to DB and then serve frontend + start server
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
+    // Serve static frontend only after successful DB connection
+    app.use(express.static(path.join(__dirname, "client", "build")));
+
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    });
+
     app.listen(port, () => {
       console.log(`Connected to MongoDB and listening at port ${port}`);
     });
@@ -36,10 +36,8 @@ mongoose
     console.error("Error connecting to MongoDB:", err);
   });
 
-// Error handling middleware (example)
+// Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something broke!");
 });
-
-// Serve static files and handle client-side routing in production
