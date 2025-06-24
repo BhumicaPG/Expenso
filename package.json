@@ -5,6 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "build:client": "npm install --legacy-peer-deps --prefix client && npm run build --prefix client",
+    "build": "npm run build:client",
+    "postinstall": "npm run build:client",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --prefix client && npm run build --prefix client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
