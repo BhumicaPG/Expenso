@@ -1,5 +1,10 @@
+# 📝 Full Stack Expense Tracker
 A full-stack Expense Tracker built using React.js and MongoDB to manage user expenses, featuring a login/logout system, categorization, and visualization of expenses using Chart.js. 
 The application supports CRUD operations for adding, updating, and deleting expenses and includes a split-bill function, enabling seamless bill sharing and division among users via WhatsApp for efficient group expense management.
+
+### Demo link 🔗 - https://expenso-0en5.onrender.com
+
+###
 
 ![Screenshot (325)](https://github.com/user-attachments/assets/c8e30847-f3f5-42ea-9543-f91e142ba2eb)
 
