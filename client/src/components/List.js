@@ -1,3 +1,5 @@
+//helps displaying the list of expenses seen on the dashboard
+
 import React, { useEffect, useState } from "react";
 import Money from "../assets/money.png";
 
@@ -11,8 +13,8 @@ export default function List(props) {
     props.openModalConfirm();
   };
   return (
-    <div className="m-2 mt-4 lg:mt-0 mx-4 lg:mx-0 p-2  lg:grid lg:grid-cols-7  text-custom-black-300 bg-rp-black rounded-xl lg:p-4 lg:m-6 lg:w-[90%] w-[65%] flex">
-      <div
+    <div className="relative m-2 mt-4 lg:mt-0 mx-4 lg:mx-0 p-2  lg:grid lg:grid-cols-7  text-custom-black-300 bg-rp-black rounded-xl lg:p-4 lg:m-6 lg:w-[95%] w-[65%] flex">
+      {/* <div
         onClick={HandleSetUp}
         className="text-jp-yellow absolute cursor-pointer"
       >
@@ -28,7 +30,55 @@ export default function List(props) {
             clipRule="evenodd"
           />
         </svg>
+      </div> */}
+
+      <div className="absolute bottom-3 right-4 flex gap-2 text-jp-yellow">
+        {/* ✏️ Edit icon */}
+        <div
+          onClick={() => {
+            console.log("Editing:", props.expense);
+            props.setEditExpense(props.expense);
+            setTimeout(() => {
+              props.openModalExpense();
+            }, 0);
+          }}
+          className="text-jp-yellow cursor-pointer hover:scale-110"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path d="M17.414 2.586a2 2 0 00-2.828 0L6 11.172V14h2.828l8.586-8.586a2 2 0 000-2.828z" />
+            <path
+              fillRule="evenodd"
+              d="M4 16a2 2 0 002 2h8a2 2 0 002-2v-1a1 1 0 112 0v1a4 4 0 01-4 4H6a4 4 0 01-4-4v-1a1 1 0 112 0v1z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+
+        {/* 🗑️ Delete icon */}
+        <div
+          onClick={HandleSetUp}
+          className="text-jp-yellow cursor-pointer hover:scale-110"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
       </div>
+
       <div className="bg-jp-black rounded-full lg:w-2/3 w-fit  h-12 relative top-3 p-2 mb-8 lg:mb-3">
         <img src={Money} className="h-7 w-7 mt-1"></img>
       </div>

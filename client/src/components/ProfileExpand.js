@@ -16,6 +16,8 @@ export default function ProfileExpand() {
     }
     handleGetUser();
   }, []);
+  console.log("profileexpand mounted");
+  console.log("user state: ", user);
 
   return (
     <div className="bg-rp-black rounded-xl text-jp-white p-6 shadow-md shadow-slate-600 font-lexend">
@@ -61,9 +63,7 @@ export default function ProfileExpand() {
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
           </svg>
-          <h1 className="ml-2 col-span-8 text-jp-white uppercase">
-            {user.email}
-          </h1>
+          <h1 className="ml-2 col-span-8 text-jp-white">{user.email}</h1>
         </div>
       </div>
     </div>

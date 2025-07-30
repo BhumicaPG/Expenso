@@ -41,6 +41,8 @@ export default function MainDaily(props) {
                 setDeleteId={props.setDeleteId}
                 openModalConfirm={props.openModalConfirm}
                 expense={item}
+                setEditExpense={props.setEditExpense}
+                _testSetEditExpense={() => console.log("Prop reached List")} // For testing
               />
             );
           })}

@@ -1,3 +1,5 @@
+//this file is basically the sidebar
+
 import React, { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import mainMenu from "../assets/mobile_bar.png";

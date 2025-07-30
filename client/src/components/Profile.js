@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import avatar from "../assets/man.png";
+import avatar from "../assets/usergirl.png";
 
 export default function Profile({ setViewProfile }) {
   const navigate = useNavigate();

@@ -22,6 +22,29 @@ const AddExpense = (props) => {
     amount: "",
     desc: "",
   });
+  console.log("editExpense in modal:", props.editExpense);
+
+  //for editing expesne
+  useEffect(() => {
+    if (props.editExpense) {
+      setExpense({
+        amount: props.editExpense.amount?.$numberDecimal || "",
+        desc: props.editExpense.desc || "",
+        date: props.editExpense.date?.slice(0, 10) || "", // formatted for input
+        category: props.editExpense.category || "General",
+      });
+    } else {
+      // If creating new
+      setExpense({
+        amount: "",
+        desc: "",
+        date: "",
+        category: "General",
+      });
+    }
+  }, [props.editExpense]);
+
+  //edit ends here
 
   useEffect(() => {
     if (expense.category === "Split Bill") {
@@ -41,29 +64,79 @@ const AddExpense = (props) => {
     }
   }, [splitBill, expense.amount, numberOfPeople]);
 
+  // const handleAddExpense = async (e) => {
+  //   setIsLoading(true);
+  //   setError({
+  //     msg: "",
+  //   });
+  //   const url = props.editExpense
+  //     ? `/expense/updateexpense/${props.editExpense._id}`
+  //     : "/expense/addexpense";
+
+  //   const method = props.editExpense ? "PUT" : "POST";
+
+  //   const res = await fetch(url, {
+  //     //"/expense/addexpense"
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(expense),
+  //   });
+  //   const data = await res.json();
+  //   if (data.errors) {
+  //     setIsLoading(false);
+  //     setError(data.errors);
+  //     console.log(data.errors);
+  //   } else {
+  //     setIsLoading(false);
+  //     props.closeModalExpense();
+  //     navigate("/dashboard");
+  //     window.location.reload();
+  //   }
+  // };
+
   const handleAddExpense = async (e) => {
     setIsLoading(true);
     setError({
       msg: "",
     });
-    const res = await fetch("/expense/addexpense", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(expense),
-    });
-    const data = await res.json();
-    if (data.errors) {
+
+    const url = props.editExpense
+      ? `/expense/updateexpense/${props.editExpense._id}`
+      : "/expense/addexpense";
+
+    const method = props.editExpense ? "PUT" : "POST";
+
+    try {
+      const res = await fetch(url, {
+        method: method, // Changed from hardcoded "POST"
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include", // Needed for auth
+        body: JSON.stringify({
+          ...expense,
+          amount: parseFloat(expense.amount), // Ensure amount is a number
+        }),
+      });
+
+      const data = await res.json();
+      if (data.errors) {
+        setError(data.errors);
+      } else {
+        props.closeModalExpense();
+        if (props.editExpense && props.updateExpenseInList) {
+          props.updateExpenseInList(data.updated || data.expense);
+        }
+      }
+    } catch (err) {
       setIsLoading(false);
-      setError(data.errors);
-      console.log(data.errors);
-    } else {
+      setError({ msg: "Something went wrong" });
+    } finally {
       setIsLoading(false);
-      props.closeModalExpense();
-      navigate("/dashboard");
-      window.location.reload();
     }
+    window.location.reload();
   };
 
   const handleShare = () => {
@@ -79,7 +152,7 @@ const AddExpense = (props) => {
           <div className=" flex mt-4 ">
             {/* <h1 className="text-jp-white text-2xl font-bold ">Add Expense</h1> */}
             <h1 className="text-custom-black text-2xl font-bold">
-              Add Expense
+              {props.editExpense ? "Edit Expense" : "Add Expense"}
             </h1>
           </div>
           <div className=" text-custom-black flex mt-4 ">

@@ -25,6 +25,11 @@ export default function MainAnalysis(props) {
                         setDeleteId={props.setDeleteId}
                         openModalConfirm={props.openModalConfirm}
                         expense={item}
+                        setEditExpense={props.setEditExpense}
+                        _testSetEditExpense={() =>
+                          console.log("Prop reached List")
+                        } // For testing
+                        openModalExpense={props.openModalExpense}
                       />
                     );
                   })
@@ -69,6 +74,11 @@ export default function MainAnalysis(props) {
                         setDeleteId={props.setDeleteId}
                         openModalConfirm={props.openModalConfirm}
                         expense={item}
+                        setEditExpense={props.setEditExpense}
+                        _testSetEditExpense={() =>
+                          console.log("Prop reached List")
+                        } // For testing
+                        openModalExpense={props.openModalExpense}
                       />
                     );
                   })

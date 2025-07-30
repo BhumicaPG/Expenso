@@ -1,3 +1,5 @@
+//this file displays all the chart only the chart box
+
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import DoughnutChart from "./DoughnutChart";

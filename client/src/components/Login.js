@@ -20,7 +20,7 @@ export default function Login(props) {
     setIsLoading(true);
     setError({
       email: "",
-      passowrd: "",
+      password: "",
     });
 
     const res = await fetch("/user/login", {

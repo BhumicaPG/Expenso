@@ -29,8 +29,9 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState();
 
   const [deleteId, setDeleteId] = useState();
-
+  const [editExpense, setEditExpense] = useState(null);
   function openModalContact() {
+    setEditExpense(null);
     setIsOpenContact(true);
   }
 
@@ -51,6 +52,7 @@ function App() {
 
   function closeModalExpense() {
     setIsOpenExpense(false);
+    setEditExpense(null); // ✅ reset after modal closes added new to try the edit
   }
   function openModalBudget() {
     setIsOpenBudget(true);
@@ -129,6 +131,8 @@ function App() {
               ></LandingPage>
             }
           />
+
+          {/* the sidebar routes */}
           <Route
             path="dashboard"
             element={
@@ -136,6 +140,7 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 setIsLoggedIn={setIsLoggedIn}
                 openModalExpense={openModalExpense}
+                setEditExpense={setEditExpense} // 👈 NEW
               />
             }
           >
@@ -143,9 +148,11 @@ function App() {
               path=""
               element={
                 <Main
+                  openModalExpense={openModalExpense}
                   setDeleteId={setDeleteId}
                   openModalConfirm={openModalConfirm}
                   openModalBudget={openModalBudget}
+                  setEditExpense={setEditExpense} // 👈 NEW
                 />
               }
             ></Route>
@@ -156,6 +163,8 @@ function App() {
                 <MainAnalysis
                   setDeleteId={setDeleteId}
                   openModalConfirm={openModalConfirm}
+                  setEditExpense={setEditExpense} // 👈 NEW
+                  openModalExpense={openModalExpense} // ✅ Add this
                 />
               }
             ></Route>
@@ -171,14 +180,17 @@ function App() {
                 <MainDaily
                   setDeleteId={setDeleteId}
                   openModalConfirm={openModalConfirm}
+                  setEditExpense={setEditExpense} // 👈 NEW
                 />
               }
             ></Route>
           </Route>
+          {/* sidebar ends here */}
 
           <Route path="/about-us" element={<Developers />} />
           <Route path="/contact-us" element={<Contact />} />
         </Routes>
+
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModalSignup}
@@ -247,7 +259,10 @@ function App() {
               />
             </svg>
           </button>
-          <AddExpense closeModalExpense={closeModalExpense} />
+          <AddExpense
+            closeModalExpense={closeModalExpense}
+            editExpense={editExpense}
+          />
         </Modal>
       </div>
 
@@ -320,7 +335,10 @@ function App() {
             />
           </svg>
         </button>
-        <AddExpense closeModalExpense={closeModalExpense} />
+        <AddExpense
+          closeModalExpense={closeModalExpense}
+          editExpense={editExpense}
+        />
       </Modal>
 
       <Modal

@@ -133,3 +133,23 @@ module.exports.delete_expense = async (req, res) => {
     res.status(404).json({ errors: { msg: "Something went wrong." } });
   }
 };
+
+// Update an existing expense
+module.exports.update_expense = async (req, res) => {
+  // const { id } = req.params;
+
+  try {
+    const updated = await Expense.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updated) {
+      return res.status(404).json({ errors: { msg: "Expense not found" } });
+    }
+
+    res.status(200).json({ msg: "Expense updated successfully", updated });
+  } catch (err) {
+    res.status(500).json({ errors: { msg: "Something went wrong", err } });
+  }
+};
