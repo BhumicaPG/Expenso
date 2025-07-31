@@ -6,7 +6,7 @@ module.exports = {
         "rp-black": "white", //changes box colours #1E2329  #eae8e4
         "mj-black": "#E0E1E4", //dashboard lhilay tyacha color change
         "jp-black": "#F5EFFF", //purn home page cha background
-        "rp-yellow": "#B19CD9", //yellow - #F5A302   purple - #B19CD9
+        "rp-yellow": "#B19CD9", //yellow - #645394   purple - #B19CD9
         "mj-yellow": "#8968cd", //   #F4B301
         "jp-yellow": "#645394", //#FED154   //spend analysis javal cha icon
         "blue-1": "023e8a",

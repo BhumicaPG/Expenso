@@ -147,8 +147,8 @@ const AddExpense = (props) => {
 
   return (
     <Scrollbars style={{ width: 540, height: 500 }} className="mt-8">
-      <div className=" grid grid-cols-2 font-lexend ">
-        <div className="col-span-4 bg-rp-black p-6 ">
+      <div className=" grid grid-cols-1 font-lexend rounded-md ">
+        <div className="col-span-3 bg-rp-black p-8 py-4 rounded-md">
           <div className=" flex mt-4 ">
             {/* <h1 className="text-jp-white text-2xl font-bold ">Add Expense</h1> */}
             <h1 className="text-custom-black text-2xl font-bold">
@@ -234,7 +234,7 @@ const AddExpense = (props) => {
               </button>
             </div>
           )}
-          <div className="border-rp-yellow border-2 rounded-md w-fit px-8 mt-10">
+          <div className="border-rp-yellow border-2 rounded-md w-fit px-0 mt-7">
             {isLoading ? (
               <ReactLoading
                 type="bubbles"

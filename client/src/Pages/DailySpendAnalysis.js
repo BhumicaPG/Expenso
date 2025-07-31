@@ -17,10 +17,10 @@ export default function DailySpendAnalysis() {
           "rgba(195, 193, 200,1)",
           "rgba(179, 178, 186,1)",
           "rgb(173, 172, 181,1)",
-          "rgba(157, 157, 167, 1)",
-          "rgba(141, 142, 153, 1)",
-          "rgba(109, 111, 124, 1)",
-          "rgba(157, 157, 167, 1)",
+          "rgba(255, 255, 255, 1)",
+          "rgba(233, 234, 239, 1)",
+          "rgba(242, 242, 242, 1)",
+          "rgba(252, 252, 252, 1)",
         ],
       },
     ],
@@ -44,12 +44,12 @@ export default function DailySpendAnalysis() {
               borderColor: "black",
               backgroundColor: [
                 "rgba(195, 193, 200,1)",
-                "rgba(179, 178, 186,1)",
+                "rgba(242, 241, 248, 1)",
                 "rgb(173, 172, 181,1)",
-                "rgba(157, 157, 167, 1)",
-                "rgba(141, 142, 153, 1)",
-                "rgba(109, 111, 124, 1)",
-                "rgba(157, 157, 167, 1)",
+                "rgba(255, 255, 255, 1)",
+                "rgba(255, 255, 255, 1)",
+                "rgba(255, 255, 255, 1)",
+                "rgba(248, 248, 252, 1)",
               ],
               borderColor: [
                 "rgba(195, 193, 200,1)",
@@ -57,7 +57,7 @@ export default function DailySpendAnalysis() {
                 "rgb(173, 172, 181,1)",
                 "rgba(157, 157, 167, 1)",
                 "rgba(141, 142, 153, 1)",
-                "rgba(109, 111, 124, 1)",
+                "rgba(255, 255, 255, 1)",
                 "rgba(157, 157, 167, 1)",
               ],
               borderWidth: 1,
@@ -72,14 +72,14 @@ export default function DailySpendAnalysis() {
   return (
     <div className="bg-jp-black">
       <div className="bg-rp-black w-3/4 p-5 flex m-auto mt-14 rounded-md justify-center">
-        <h1 className="font-bold text-xl font-lexand text-slate-300 mr-3 mt-3">
+        <h1 className="font-bold text-xl font-lexand  mr-3 mt-3">
           Today's Spending
         </h1>
         <span className="font-bold text-2xl font-lexend text-mj-black bg-rp-yellow p-3 rounded-md">
           {total}
         </span>
       </div>
-      <div className="w-3/4 m-auto mt-14 bg-slate-300 rounded-lg p-6">
+      <div className="w-3/4 m-auto mt-14 bg-slate-300 rounded-lg p-6 rounded-md">
         <BarChart chartData={expenseData} />
       </div>
     </div>

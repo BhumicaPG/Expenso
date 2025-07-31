@@ -31,7 +31,7 @@ export default function ConfirmDelete(props) {
           {isLoading ? (
             <ReactLoading
               type="bubbles"
-              color="#F5A302"
+              color="#645394"
               height={50}
               width={50}
             />
